@@ -9,6 +9,7 @@ public class Main
 {
 	public static void main(String[] args)
 	{
+		//Only one argument is required: The bot token.
 		if(args.length == 1)
 		{
 			try
