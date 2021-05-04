@@ -7,6 +7,11 @@ import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
+/***
+ * 
+ * @author Sorin
+ * A Telegram bot which allows for interaction between the user and the application.
+ */
 public class TelegramChatbot extends TelegramLongPollingBot
 {
 	private final String API_TOKEN;
@@ -26,12 +31,10 @@ public class TelegramChatbot extends TelegramLongPollingBot
 	        SendMessage message = new SendMessage();
 	     
 	        message.setChatId(update.getMessage().getChatId().toString());
-	        //message.setText(_chat.multisentenceRespond(update.getMessage().getText()));
-	        message.setText((new Date().toString()));
+	        message.setText((new Date().toString())); //Send back the date for now...
 
 	        try
 	        {
-	        	//Call method to send the message.
 	            execute(message);
 	        }
 	        catch(TelegramApiException e)

@@ -5,6 +5,11 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
 import chatbot.TelegramChatbot;
 
+/***
+ * 
+ * @author Sorin
+ * Entry point of the application.
+ */
 public class Main
 {
 	public static void main(String[] args)
