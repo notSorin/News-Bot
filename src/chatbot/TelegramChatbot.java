@@ -1,9 +1,10 @@
 package chatbot;
 
-import java.util.Date;
-
+import org.alicebot.ab.Bot;
+import org.alicebot.ab.Chat;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
+import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
@@ -15,10 +16,17 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 public class TelegramChatbot extends TelegramLongPollingBot
 {
 	private final String API_TOKEN;
+	private Bot _nlpBot;
+	private Chat _nlpChat;
 	
 	public TelegramChatbot(String apiToken)
 	{
 		API_TOKEN = apiToken;
+		
+		_nlpBot = new Bot("nlpbot", "src/main/resources");
+		_nlpChat = new Chat(_nlpBot);
+		
+		//AIMLProcessor.extension = new MyProcessorExtension();
 	}
 	
 	@Override
@@ -27,11 +35,14 @@ public class TelegramChatbot extends TelegramLongPollingBot
 		//We check if the update has a message and the message has text.
 	    if(update.hasMessage() && update.getMessage().hasText())
 	    {
+	    	Message updateMessage = update.getMessage();
+	    	String nlpResponse = _nlpChat.multisentenceRespond(updateMessage.getText());
+	    	
 	    	//Create a SendMessage object with mandatory fields.
 	        SendMessage message = new SendMessage();
 	     
-	        message.setChatId(update.getMessage().getChatId().toString());
-	        message.setText((new Date().toString())); //Send back the date for now...
+	        message.setChatId(updateMessage.getChatId().toString());
+	        message.setText(nlpResponse);
 
 	        try
 	        {
