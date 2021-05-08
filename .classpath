@@ -8,5 +8,6 @@
 	</classpathentry>
 	<classpathentry kind="lib" path="lib/telegrambots-5.2.0-jar-with-dependencies.jar"/>
 	<classpathentry kind="lib" path="lib/Ab.jar"/>
+	<classpathentry kind="lib" path="lib/jade.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
