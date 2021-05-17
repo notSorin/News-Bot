@@ -1,6 +1,7 @@
 package agents;
 
 import jade.core.behaviours.CyclicBehaviour;
+import jade.lang.acl.ACLMessage;
 
 public class ConversationAgentBehavior extends CyclicBehaviour
 {
@@ -9,6 +10,12 @@ public class ConversationAgentBehavior extends CyclicBehaviour
 	@Override
 	public void action()
 	{
+		ACLMessage message = getAgent().receive();
 		
+		if(message != null)
+		{
+			//TODO
+			//We probably need to cast getAgent() to a ConversationAgent and call sendMessage on the Telegram bot.
+		}
 	}
 }

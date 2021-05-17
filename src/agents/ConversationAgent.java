@@ -31,6 +31,7 @@ public class ConversationAgent extends Agent
 		Object [] args = getArguments();
 		
 		initializeTelegramChatbot(args[0].toString());
+		addBehaviour(new ConversationAgentBehavior());
 		
 		//AIMLProcessor.extension = new MyProcessorExtension();
 	}
