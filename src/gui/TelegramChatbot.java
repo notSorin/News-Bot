@@ -22,9 +22,13 @@ public class TelegramChatbot extends TelegramLongPollingBot
 		CONVERSATION_AGENT = ca;
 	}
 	
+	/**
+	 * Called whenever a message is sent through Telegram.
+	 */
 	@Override
 	public void onUpdateReceived(Update update)
 	{
+		//Let the agent decide what to do with the update.
 		CONVERSATION_AGENT.processTelegramUpdate(update);
 	}
 	
