@@ -13,7 +13,7 @@ import jade.wrapper.StaleProxyException;
  * @author Sorin
  * Class used for starting and stopping the system.
  */
-public class NewsBot
+class NewsBot
 {
 	private AgentContainer _agentsContainer;
 	
