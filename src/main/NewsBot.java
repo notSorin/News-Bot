@@ -34,7 +34,6 @@ public class NewsBot
 			initializeInformationExtractorAgent();
 			initializeClassificationAgent();
 			initializeClusteringAgent();
-
 		}
 		catch(StaleProxyException e)
 		{
