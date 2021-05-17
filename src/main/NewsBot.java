@@ -1,6 +1,7 @@
 package main;
 
 import agents.ConversationAgent;
+import agents.InformationExtractorAgent;
 import jade.core.ProfileImpl;
 import jade.core.Runtime;
 import jade.wrapper.AgentContainer;
@@ -41,19 +42,21 @@ public class NewsBot
 		}
 	}
 	
-	private void initializeClusteringAgent()
+	private void initializeClusteringAgent() throws StaleProxyException
 	{
 		// TODO Auto-generated method stub
 	}
 
-	private void initializeClassificationAgent()
+	private void initializeClassificationAgent() throws StaleProxyException
 	{
 		// TODO Auto-generated method stub
 	}
 
-	private void initializeInformationExtractorAgent()
+	private void initializeInformationExtractorAgent() throws StaleProxyException
 	{
-		// TODO Auto-generated method stub
+		AgentController acInformationExtractor = _agentsContainer.createNewAgent(InformationExtractorAgent.class.getSimpleName(), InformationExtractorAgent.class.getName(), null);
+
+		acInformationExtractor.start();
 	}
 
 	private void initializeConversationAgent(String telegramApiToken) throws StaleProxyException
