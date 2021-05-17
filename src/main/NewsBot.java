@@ -1,7 +1,7 @@
 package main;
 
-import agents.ConversationAgent;
-import agents.InformationExtractorAgent;
+import agents.conversation.ConversationAgent;
+import agents.informationextractor.InformationExtractorAgent;
 import jade.core.ProfileImpl;
 import jade.core.Runtime;
 import jade.wrapper.AgentContainer;

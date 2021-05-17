@@ -1,4 +1,4 @@
-package agents;
+package agents.informationextractor;
 
 import agents.behaviors.InformationExtractorBehavior;
 import jade.core.Agent;

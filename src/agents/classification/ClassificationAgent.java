@@ -1,4 +1,4 @@
-package agents;
+package agents.classification;
 
 import agents.behaviors.ClassificationAgentBehavior;
 import jade.core.Agent;

@@ -1,4 +1,4 @@
-package agents;
+package agents.conversation;
 
 import org.alicebot.ab.Bot;
 import org.alicebot.ab.Chat;
