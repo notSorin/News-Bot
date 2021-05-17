@@ -1,4 +1,4 @@
-package agents.behaviors;
+package agents.informationextractor;
 
 import jade.core.behaviours.CyclicBehaviour;
 import jade.lang.acl.ACLMessage;
