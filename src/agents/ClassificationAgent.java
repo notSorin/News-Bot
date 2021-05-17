@@ -3,7 +3,7 @@ package agents;
 import jade.core.Agent;
 
 /**
- * Agent used for classifying a news article to a specific category.
+ * Agent used for classifying news articles to a specific category.
  * */
 public class ClassificationAgent extends Agent
 {
