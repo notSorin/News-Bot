@@ -1,5 +1,6 @@
 package agents.conversation;
 
+import org.alicebot.ab.AIMLProcessor;
 import org.alicebot.ab.Bot;
 import org.alicebot.ab.Chat;
 import org.telegram.telegrambots.meta.TelegramBotsApi;
@@ -32,7 +33,8 @@ public class ConversationAgent extends Agent
 		initializeTelegramChatbot(args[0].toString());
 		addBehaviour(new ConversationAgentBehavior());
 		
-		//AIMLProcessor.extension = new MyProcessorExtension();
+		//We set our own processor extension for processing new AIML tags.
+		AIMLProcessor.extension = new NBAIMLProcessorExtension();
 	}
 	
 	private void initializeTelegramChatbot(String telegramApiToken)
