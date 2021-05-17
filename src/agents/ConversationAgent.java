@@ -10,6 +10,9 @@ import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
 import gui.TelegramChatbot;
 import jade.core.Agent;
 
+/**
+ * Agent used to process the information sent by the user.
+ * */
 public class ConversationAgent extends Agent
 {
 	private static final long serialVersionUID = 1L;
