@@ -31,6 +31,10 @@ public class NewsBot
 		try
 		{
 			initializeConversationAgent(telegramApiToken);
+			initializeInformationExtractorAgent();
+			initializeClassificationAgent();
+			initializeClusteringAgent();
+
 		}
 		catch(StaleProxyException e)
 		{
@@ -38,6 +42,21 @@ public class NewsBot
 		}
 	}
 	
+	private void initializeClusteringAgent()
+	{
+		// TODO Auto-generated method stub
+	}
+
+	private void initializeClassificationAgent()
+	{
+		// TODO Auto-generated method stub
+	}
+
+	private void initializeInformationExtractorAgent()
+	{
+		// TODO Auto-generated method stub
+	}
+
 	private void initializeConversationAgent(String telegramApiToken) throws StaleProxyException
 	{
 		Object [] args = {telegramApiToken};
