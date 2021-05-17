@@ -1,17 +1,16 @@
-package gui;
+package agents.conversation;
 
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
-import agents.conversation.ConversationAgent;
 
 /***
  * 
  * @author Sorin
  * A Telegram bot which allows for interaction between the user and the application.
  */
-public class TelegramChatbot extends TelegramLongPollingBot
+class TelegramChatbot extends TelegramLongPollingBot
 {
 	private final String API_TOKEN;
 	private final ConversationAgent CONVERSATION_AGENT;
