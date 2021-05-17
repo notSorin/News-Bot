@@ -7,6 +7,7 @@ import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
+import agents.behaviors.ConversationAgentBehavior;
 import gui.TelegramChatbot;
 import jade.core.Agent;
 

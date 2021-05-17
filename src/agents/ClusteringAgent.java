@@ -1,5 +1,6 @@
 package agents;
 
+import agents.behaviors.ClusteringAgentBehaviour;
 import jade.core.Agent;
 
 /**

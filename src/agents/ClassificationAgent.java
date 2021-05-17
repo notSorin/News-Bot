@@ -1,5 +1,6 @@
 package agents;
 
+import agents.behaviors.ClassificationAgentBehavior;
 import jade.core.Agent;
 
 /**

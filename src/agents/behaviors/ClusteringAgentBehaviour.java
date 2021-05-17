@@ -1,4 +1,4 @@
-package agents;
+package agents.behaviors;
 
 import jade.core.behaviours.CyclicBehaviour;
 import jade.lang.acl.ACLMessage;

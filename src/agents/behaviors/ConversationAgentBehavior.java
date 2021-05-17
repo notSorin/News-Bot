@@ -1,9 +1,9 @@
-package agents;
+package agents.behaviors;
 
 import jade.core.behaviours.CyclicBehaviour;
 import jade.lang.acl.ACLMessage;
 
-public class ClassificationAgentBehavior extends CyclicBehaviour
+public class ConversationAgentBehavior extends CyclicBehaviour
 {
 	private static final long serialVersionUID = 1L;
 
@@ -15,6 +15,7 @@ public class ClassificationAgentBehavior extends CyclicBehaviour
 		if(message != null)
 		{
 			//TODO
+			//We probably need to cast getAgent() to a ConversationAgent and call sendMessage on the Telegram bot.
 		}
 	}
 }
