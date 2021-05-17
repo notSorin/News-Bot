@@ -9,4 +9,9 @@ public class InformationExtractorAgent extends Agent
 {
 	private static final long serialVersionUID = 1L;
 
+	@Override
+	protected void setup()
+	{
+		addBehaviour(new InformationExtractorBehavior());
+	}
 }

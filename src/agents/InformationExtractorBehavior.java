@@ -1,6 +1,7 @@
 package agents;
 
 import jade.core.behaviours.CyclicBehaviour;
+import jade.lang.acl.ACLMessage;
 
 public class InformationExtractorBehavior extends CyclicBehaviour
 {
@@ -9,6 +10,11 @@ public class InformationExtractorBehavior extends CyclicBehaviour
 	@Override
 	public void action()
 	{
+		ACLMessage message = getAgent().receive();
 		
+		if(message != null)
+		{
+			//TODO
+		}
 	}
 }
