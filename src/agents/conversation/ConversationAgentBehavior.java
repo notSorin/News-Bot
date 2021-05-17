@@ -3,7 +3,7 @@ package agents.conversation;
 import jade.core.behaviours.CyclicBehaviour;
 import jade.lang.acl.ACLMessage;
 
-public class ConversationAgentBehavior extends CyclicBehaviour
+class ConversationAgentBehavior extends CyclicBehaviour
 {
 	private static final long serialVersionUID = 1L;
 
