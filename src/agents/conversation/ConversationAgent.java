@@ -25,7 +25,7 @@ public class ConversationAgent extends Agent
 	{
 		super.setup();
 		
-		_nlpBot = new Bot("nlpbot", "src/main/resources");
+		_nlpBot = new Bot("nlpbot", "./resources");
 		_nlpChat = new Chat(_nlpBot);
 		
 		Object [] args = getArguments();
