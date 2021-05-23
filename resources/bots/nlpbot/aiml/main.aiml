@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<aiml>
+	<category>
+		<pattern>HI</pattern>
+		<template>Hey there!</template>
+	</category>
+	
+	<category>
+		<pattern>ANALYZE</pattern>
+		<template>
+			<think><set name = "topic">analyze-article</set></think>
+			Ok, send me the article.
+		</template>
+	</category>
+	
+	<category>
+		<pattern>GROUP</pattern>
+		<template>
+			<think><set name = "topic">cluster-article</set></think>
+			Let's do some clustering! Send me the article, and I'll see what I can figure out about it.
+		</template>
+	</category>
+	
+	<topic name = "analyze-article">
+		<category>
+			<pattern>*</pattern>
+			<template>
+				Got it. Hold on a moment while I analyze it.
+			</template>
+		</category>
+		
+		<category>
+			<pattern>STOP</pattern>
+			<template>
+				<think><set name = "topic">default</set></think>
+				Ok. Let's do something else.
+			</template>
+		</category>
+	</topic>
+	
+	<topic name = "cluster-article">
+		<category>
+			<pattern>*</pattern>
+			<template>
+				Ok. Let's see where it belongs...
+			</template>
+		</category>
+		
+		<category>
+			<pattern>STOP</pattern>
+			<template>
+				<think><set name = "topic">default</set></think>
+				Alright, to something else then.
+			</template>
+		</category>
+	</topic>
+</aiml>
