@@ -3,7 +3,6 @@ package agents.conversation;
 import java.util.HashMap;
 import agents.AgentsEnums.MessageKey;
 import agents.AgentsEnums.MessageValue;
-import agents.clustering.ClusteringAgent;
 import jade.core.behaviours.CyclicBehaviour;
 import jade.lang.acl.ACLMessage;
 
