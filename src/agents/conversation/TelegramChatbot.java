@@ -31,6 +31,11 @@ class TelegramChatbot extends TelegramLongPollingBot
 		CONVERSATION_AGENT.processTelegramUpdate(update);
 	}
 	
+	/**
+	 * Sends a message through Telegram.
+	 * @param messageText The message's text.
+	 * @param chatId The Id of the chat to which the message should be sent.
+	 */
 	public void sendMessage(String messageText, String chatId)
 	{
 		//Create a SendMessage object with mandatory fields.

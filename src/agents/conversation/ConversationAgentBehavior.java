@@ -6,6 +6,11 @@ import agents.AgentsEnums.MessageValue;
 import jade.core.behaviours.CyclicBehaviour;
 import jade.lang.acl.ACLMessage;
 
+/**
+ * The behavior class for the Conversation Agent. It receives ACL messages and reacts accordingly.
+ * @author Sorin
+ *
+ */
 class ConversationAgentBehavior extends CyclicBehaviour
 {
 	private static final long serialVersionUID = 1L;

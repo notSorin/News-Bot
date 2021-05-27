@@ -1,5 +1,10 @@
 package agents;
 
+/**
+ * Class containing some enums used by the Agents to communicate with each other.
+ * @author Sorin
+ *
+ */
 public class AgentsEnums
 {
 	//Enums that the agents will receive through messages:

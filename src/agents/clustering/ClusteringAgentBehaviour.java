@@ -6,6 +6,11 @@ import agents.AgentsEnums.MessageValue;
 import jade.core.behaviours.CyclicBehaviour;
 import jade.lang.acl.ACLMessage;
 
+/**
+ * The behavior class for the Clustering Agent. It receives ACL messages and reacts accordingly.
+ * @author Sorin
+ *
+ */
 class ClusteringAgentBehaviour extends CyclicBehaviour
 {
 	private static final long serialVersionUID = 1L;
@@ -59,6 +64,11 @@ class ClusteringAgentBehaviour extends CyclicBehaviour
 		}
 	}
 
+	/**
+	 * Obtains inferred topics from the Topic Model.
+	 * @param article A news article's text.
+	 * @return A string with the inferred topics, or an error message on error.
+	 */
 	private String performClustering(String article)
 	{
 		String ret = CLUSTER_ERROR;
