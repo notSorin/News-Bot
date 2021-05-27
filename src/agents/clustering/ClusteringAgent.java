@@ -27,4 +27,9 @@ public class ClusteringAgent extends Agent
 	{
 		addBehaviour(new ClusteringAgentBehaviour());
 	}
+	
+	void respondToClusterRequest(String clusterResult)
+	{
+		//TODO
+	}
 }
