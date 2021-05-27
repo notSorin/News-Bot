@@ -61,8 +61,8 @@ public class ConversationAgent extends Agent
 	    {
 	    	_lastUpdate = update;
 	    	
-	    	Message message = update.getMessage();
-	    	String nlpResponse = _nlpChat.multisentenceRespond(message.getText());
+	    	final String input = update.getMessage().getText().replaceAll("[^a-zA-Z0-9 ]", " ").toLowerCase();
+	    	final String nlpResponse = _nlpChat.multisentenceRespond(input);
 	    	
 	    	if(!nlpResponse.equals("null"))
 	    	{
