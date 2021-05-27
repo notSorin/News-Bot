@@ -2,8 +2,6 @@ package agents.clustering;
 
 import java.io.IOException;
 import java.util.HashMap;
-
-import agents.clustering.ClusteringAgent.MessageKey;
 import agents.conversation.ConversationAgent;
 import jade.core.AID;
 import jade.core.Agent;
