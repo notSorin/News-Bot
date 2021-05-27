@@ -4,7 +4,6 @@ import org.alicebot.ab.AIMLProcessor;
 import org.alicebot.ab.Bot;
 import org.alicebot.ab.Chat;
 import org.telegram.telegrambots.meta.TelegramBotsApi;
-import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
@@ -28,6 +27,7 @@ public class ConversationAgent extends Agent
 		
 		_nlpBot = new Bot("nlpbot", "./resources");
 		_nlpChat = new Chat(_nlpBot);
+		_lastUpdate = null;
 		
 		Object [] args = getArguments();
 		
@@ -38,6 +38,10 @@ public class ConversationAgent extends Agent
 		AIMLProcessor.extension = new NBAIMLProcessorExtension(this);
 	}
 	
+	/**
+	 * Initializes the class' telegram bot.
+	 * @param telegramApiToken The Telegram API token.
+	 */
 	private void initializeTelegramChatbot(String telegramApiToken)
 	{
 		try
@@ -54,13 +58,18 @@ public class ConversationAgent extends Agent
 		}
 	}
 	
+	/**
+	 * Takes an update from Telegram and processes it using Natural Language Processing.
+	 * @param update A Telegram Update.
+	 */
 	void processTelegramUpdate(Update update)
-	{		
+	{
 		//We check if the update has a message and the message has text.
 	    if(update.hasMessage() && update.getMessage().hasText())
 	    {
 	    	_lastUpdate = update;
 	    	
+	    	//Sanitize the user input.
 	    	final String input = update.getMessage().getText().replaceAll("[^a-zA-Z0-9 ]", " ").toLowerCase();
 	    	final String nlpResponse = _nlpChat.multisentenceRespond(input);
 	    	
