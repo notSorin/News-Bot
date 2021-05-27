@@ -57,8 +57,9 @@ class TopicModel
 		
 		if(totalTopWords > 0)
 		{
-			inferredTopics = "These are the topics of your article, matching at " + maxDistribution + " %...\n";
 			final int toLoop = totalTopWords > 20 ? 20 : totalTopWords;
+			
+			inferredTopics = "These are the top " + toLoop + " topics related to your article, matching at " + (int)(maxDistribution * 100) + "%...\n\n";
 			
 			//Only return the words from the topic with the greatest distribution value (maxDistributionPosition).
 			for(int i = 0; i < toLoop; i++)
