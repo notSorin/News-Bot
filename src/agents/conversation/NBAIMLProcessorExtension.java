@@ -14,7 +14,7 @@ import jade.lang.acl.ACLMessage;
 
 /**
  * @author Sorin
- * A AIML Processor Extension used to processing new AIML tags.
+ * An AIML Processor Extension used for processing new AIML tags.
  */
 class NBAIMLProcessorExtension extends PCAIMLProcessorExtension
 {
@@ -27,7 +27,7 @@ class NBAIMLProcessorExtension extends PCAIMLProcessorExtension
 	}
 	
     @Override
-	public Set <String> extensionTagSet()
+	public Set<String> extensionTagSet()
     {
         return NEW_TAGS;
     }
@@ -43,7 +43,7 @@ class NBAIMLProcessorExtension extends PCAIMLProcessorExtension
             
             if(nodeName.equals("docluster"))
             {
-            	doCluster(ps.input);
+            	sendClusterIntent(ps.input);
             }
         }
         catch(Exception ex)
@@ -54,7 +54,11 @@ class NBAIMLProcessorExtension extends PCAIMLProcessorExtension
 		return ret;
 	}
 
-	private void doCluster(String article)
+	/**
+	 * Sends an intent to the Clustering Agent.
+	 * @param article The string of the article to perform clustering on.
+	 */
+	private void sendClusterIntent(String article)
 	{
 		HashMap<MessageKey, Object> aclContent = new HashMap<MessageKey, Object>();
 
