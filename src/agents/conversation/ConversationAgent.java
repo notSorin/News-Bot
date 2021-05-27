@@ -53,7 +53,7 @@ public class ConversationAgent extends Agent
 		}
 	}
 	
-	public void processTelegramUpdate(Update update)
+	void processTelegramUpdate(Update update)
 	{
 		//We check if the update has a message and the message has text.
 	    if(update.hasMessage() && update.getMessage().hasText())
