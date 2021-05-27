@@ -5,6 +5,11 @@ import cc.mallet.topics.ParallelTopicModel;
 import cc.mallet.types.Instance;
 import cc.mallet.types.InstanceList;
 
+/**
+ * A Topic Model used for inferring words from clusters, given new articles.
+ * @author Sorin
+ *
+ */
 class TopicModel
 {
 	private ParallelTopicModel _topicModel;
@@ -26,6 +31,11 @@ class TopicModel
 		}
 	}
 	
+	/**
+	 * Performs topic inference given a news article.
+	 * @param article The news article's text.
+	 * @return A string containing the inferred topics for the given article, or null if there are none.
+	 */
 	String inferTopics(String article)
 	{
 		String inferredTopics = null;
@@ -59,7 +69,7 @@ class TopicModel
 		{
 			final int toLoop = totalTopWords > 20 ? 20 : totalTopWords;
 			
-			inferredTopics = "These are the top " + toLoop + " topics related to your article, matching at " + (int)(maxDistribution * 100) + "%...\n\n";
+			inferredTopics = "These are the top " + toLoop + " topics related to your article, matching at " + (int)(maxDistribution * 100) + "%\n\n";
 			
 			//Only return the words from the topic with the greatest distribution value (maxDistributionPosition).
 			for(int i = 0; i < toLoop; i++)
