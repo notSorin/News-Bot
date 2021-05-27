@@ -29,13 +29,17 @@ class ClusteringAgentBehaviour extends CyclicBehaviour
 				{
 					switch(action)
 					{
-					case CLUSTER_ARTICLE:
+					case ACTION_CLUSTER_ARTICLE:
 					{
 						String article = (String)messageMap.get(MessageKey.ARTICLE_STRING);
 						String clusteringResult = performClustering(article);
 						
 						agent.respondToClusterRequest(clusteringResult);
 						break;
+					}
+					case ACTION_TEST:
+					{
+						agent.respondToClusterRequest("Hello from the clustering agent :)");
 					}
 					}
 				}
