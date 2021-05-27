@@ -1,8 +1,8 @@
 package agents.clustering;
 
 import java.util.HashMap;
-import agents.clustering.ClusteringAgent.MessageKey;
-import agents.clustering.ClusteringAgent.MessageValue;
+import agents.AgentsEnums.MessageKey;
+import agents.AgentsEnums.MessageValue;
 import jade.core.behaviours.CyclicBehaviour;
 import jade.lang.acl.ACLMessage;
 
@@ -23,21 +23,21 @@ class ClusteringAgentBehaviour extends CyclicBehaviour
 			try
 			{
 				HashMap<MessageKey, Object> messageMap = (HashMap<MessageKey, Object>)message.getContentObject();
-				MessageValue action = (MessageValue)messageMap.get(MessageKey.ACTION);
+				MessageValue intent = (MessageValue)messageMap.get(MessageKey.INTENT);
 				
-				if(action != null)
+				if(intent != null)
 				{
-					switch(action)
+					switch(intent)
 					{
-					case ACTION_CLUSTER_ARTICLE:
+					case CLUSTER_ARTICLE:
 					{
-						String article = (String)messageMap.get(MessageKey.ARTICLE_STRING);
+						String article = (String)messageMap.get(MessageKey.INTENT_DATA);
 						String clusteringResult = performClustering(article);
 						
 						agent.respondToClusterRequest(clusteringResult);
 						break;
 					}
-					case ACTION_TEST:
+					case TEST:
 					{
 						agent.respondToClusterRequest("Hello from the clustering agent :)");
 					}
