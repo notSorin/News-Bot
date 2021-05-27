@@ -8,6 +8,19 @@ import jade.core.Agent;
 public class ClusteringAgent extends Agent
 {
 	private static final long serialVersionUID = 1L;
+	
+	//Enums that the agent will receive through messages:
+	
+	//MessageKeys are used as keys for the hash maps sent as messages.
+	public enum MessageKey
+	{
+		ACTION, ARTICLE_STRING
+	}
+	
+	public enum MessageValue
+	{
+		CLUSTER_ARTICLE
+	}
 
 	@Override
 	protected void setup()
