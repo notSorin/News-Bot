@@ -9,7 +9,8 @@ import jade.lang.acl.ACLMessage;
 class ClusteringAgentBehaviour extends CyclicBehaviour
 {
 	private static final long serialVersionUID = 1L;
-	private static final String CLUSTER_ERROR = "It seems that I was not able to perform this action.";
+	private static final String CLUSTER_EXCEPTION = "It seems that I was not able to perform this action.";
+	private static final String CLUSTER_ERROR = "I could not perform clustering on the given article...";
 	
 	private final TopicModel _topicModel;
 	
@@ -53,15 +54,15 @@ class ClusteringAgentBehaviour extends CyclicBehaviour
 			}
 			catch(Exception e)
 			{
-				agent.respondToClusterRequest(CLUSTER_ERROR);
+				agent.respondToClusterRequest(CLUSTER_EXCEPTION);
 			}
 		}
 	}
 
 	private String performClustering(String article)
 	{
-		String ret = "I could not perform clustering on the given article...";
-		String topicResult = _topicModel.inferTopics(article);
+		String ret = CLUSTER_ERROR;
+		final String topicResult = _topicModel.inferTopics(article);
 		
 		if(topicResult != null)
 			ret = topicResult;
