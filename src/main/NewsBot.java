@@ -1,5 +1,6 @@
 package main;
 
+import agents.clustering.ClusteringAgent;
 import agents.conversation.ConversationAgent;
 import agents.informationextractor.InformationExtractorAgent;
 import jade.core.ProfileImpl;
@@ -43,7 +44,9 @@ class NewsBot
 	
 	private void initializeClusteringAgent() throws StaleProxyException
 	{
-		// TODO Auto-generated method stub
+		AgentController acClustering = _agentsContainer.createNewAgent(ClusteringAgent.class.getSimpleName(), ClusteringAgent.class.getName(), null);
+
+		acClustering.start();
 	}
 
 	private void initializeInformationExtractorAgent() throws StaleProxyException
