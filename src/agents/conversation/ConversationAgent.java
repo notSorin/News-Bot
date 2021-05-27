@@ -19,6 +19,7 @@ public class ConversationAgent extends Agent
 	private Bot _nlpBot;
 	private Chat _nlpChat;
 	private TelegramChatbot _telegramBot;
+	private Update _lastUpdate;
 	
 	@Override
 	protected void setup()
@@ -55,6 +56,8 @@ public class ConversationAgent extends Agent
 	
 	void processTelegramUpdate(Update update)
 	{
+		_lastUpdate = update;
+		
 		//We check if the update has a message and the message has text.
 	    if(update.hasMessage() && update.getMessage().hasText())
 	    {
@@ -63,5 +66,15 @@ public class ConversationAgent extends Agent
 	    	
 	    	_telegramBot.sendMessage(nlpResponse, update.getMessage().getChatId().toString());
 	    }
+	}
+	
+	TelegramChatbot getTelegramChatbot()
+	{
+		return _telegramBot;
+	}
+	
+	Update getLastUpdate()
+	{
+		return _lastUpdate;
 	}
 }
