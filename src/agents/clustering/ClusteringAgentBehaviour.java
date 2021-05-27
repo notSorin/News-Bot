@@ -5,17 +5,18 @@ import agents.clustering.ClusteringAgent.MessageKey;
 import agents.clustering.ClusteringAgent.MessageValue;
 import jade.core.behaviours.CyclicBehaviour;
 import jade.lang.acl.ACLMessage;
-import jade.lang.acl.UnreadableException;
 
 class ClusteringAgentBehaviour extends CyclicBehaviour
 {
 	private static final long serialVersionUID = 1L;
+	private static final String CLUSTER_ERROR = "It seems that I was not able to perform this action.";
 
 	@SuppressWarnings("unchecked")
 	@Override
 	public void action()
 	{
-		ACLMessage message = getAgent().receive();
+		final ACLMessage message = getAgent().receive();
+		final ClusteringAgent agent = ((ClusteringAgent)getAgent());
 		
 		if(message != null)
 		{
@@ -33,16 +34,15 @@ class ClusteringAgentBehaviour extends CyclicBehaviour
 						String article = (String)messageMap.get(MessageKey.ARTICLE_STRING);
 						String clusteringResult = performClustering(article);
 						
-						((ClusteringAgent)getAgent()).respondToClusterRequest(clusteringResult);
+						agent.respondToClusterRequest(clusteringResult);
 						break;
 					}
 					}
 				}
 			}
-			catch(UnreadableException e)
+			catch(Exception e)
 			{
-				//TODO Send an error back to the conversation agent.
-				e.printStackTrace();
+				agent.respondToClusterRequest(CLUSTER_ERROR);
 			}
 		}
 	}
