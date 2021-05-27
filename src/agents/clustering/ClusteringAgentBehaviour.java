@@ -10,7 +10,14 @@ class ClusteringAgentBehaviour extends CyclicBehaviour
 {
 	private static final long serialVersionUID = 1L;
 	private static final String CLUSTER_ERROR = "It seems that I was not able to perform this action.";
-
+	
+	private final TopicModel _topicModel;
+	
+	ClusteringAgentBehaviour()
+	{
+		_topicModel = new TopicModel();
+	}
+	
 	@SuppressWarnings("unchecked")
 	@Override
 	public void action()
@@ -53,7 +60,12 @@ class ClusteringAgentBehaviour extends CyclicBehaviour
 
 	private String performClustering(String article)
 	{
-		// TODO Auto-generated method stub
-		return null;
+		String ret = "I could not perform clustering on the given article...";
+		String topicResult = _topicModel.inferTopics(article);
+		
+		if(topicResult != null)
+			ret = topicResult;
+		
+		return ret;
 	}
 }
