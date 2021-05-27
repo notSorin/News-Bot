@@ -55,12 +55,12 @@ public class ConversationAgent extends Agent
 	}
 	
 	void processTelegramUpdate(Update update)
-	{
-		_lastUpdate = update;
-		
+	{		
 		//We check if the update has a message and the message has text.
 	    if(update.hasMessage() && update.getMessage().hasText())
 	    {
+	    	_lastUpdate = update;
+	    	
 	    	Message message = update.getMessage();
 	    	String nlpResponse = _nlpChat.multisentenceRespond(message.getText());
 	    	
