@@ -35,7 +35,7 @@ public class ConversationAgent extends Agent
 		addBehaviour(new ConversationAgentBehavior());
 		
 		//We set our own processor extension for processing new AIML tags.
-		AIMLProcessor.extension = new NBAIMLProcessorExtension();
+		AIMLProcessor.extension = new NBAIMLProcessorExtension(this);
 	}
 	
 	private void initializeTelegramChatbot(String telegramApiToken)
@@ -64,7 +64,10 @@ public class ConversationAgent extends Agent
 	    	Message message = update.getMessage();
 	    	String nlpResponse = _nlpChat.multisentenceRespond(message.getText());
 	    	
-	    	_telegramBot.sendMessage(nlpResponse, update.getMessage().getChatId().toString());
+	    	if(!nlpResponse.equals("null"))
+	    	{
+	    		_telegramBot.sendMessage(nlpResponse, update.getMessage().getChatId().toString());
+	    	}
 	    }
 	}
 	
