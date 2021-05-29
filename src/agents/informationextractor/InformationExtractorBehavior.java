@@ -114,7 +114,7 @@ class InformationExtractorBehavior extends CyclicBehaviour
 					{
 						String result = getAnnotations(intent);
 						
-						agent.respondToRequest(intent, result);
+						agent.respondToRequest(MessageValue.RESPONSE_GET, result);
 						
 						break;
 					}
