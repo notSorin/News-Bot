@@ -47,7 +47,7 @@ class ClusteringAgentBehaviour extends CyclicBehaviour
 						String article = (String)messageMap.get(MessageKey.INTENT_DATA);
 						String clusteringResult = performClustering(article);
 						
-						agent.respondToClusterRequest(clusteringResult);
+						agent.respondToRequest(MessageValue.RESPONSE_CLUSTER_ARTICLE, clusteringResult);
 						break;
 					}
 					default:
@@ -58,7 +58,7 @@ class ClusteringAgentBehaviour extends CyclicBehaviour
 			}
 			catch(Exception e)
 			{
-				agent.respondToClusterRequest(CLUSTER_EXCEPTION);
+				agent.respondToRequest(MessageValue.RESPONSE_CLUSTER_ARTICLE, CLUSTER_EXCEPTION);
 			}
 		}
 	}
