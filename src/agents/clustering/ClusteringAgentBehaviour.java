@@ -50,10 +50,6 @@ class ClusteringAgentBehaviour extends CyclicBehaviour
 						agent.respondToClusterRequest(clusteringResult);
 						break;
 					}
-					case TEST:
-					{
-						agent.respondToClusterRequest("Hello from the clustering agent :)");
-					}
 					}
 				}
 			}
