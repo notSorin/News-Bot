@@ -45,6 +45,48 @@
 		</category>
 		
 		<category>
+			<pattern>PEOPLE</pattern>
+			<template>
+				<getpeople></getpeople>
+			</template>
+		</category>
+		
+		<category>
+			<pattern>DATES</pattern>
+			<template>
+				<getdates></getdates>
+			</template>
+		</category>
+		
+		<category>
+			<pattern>LOCATIONS</pattern>
+			<template>
+				<getlocations></getlocations>
+			</template>
+		</category>
+		
+		<category>
+			<pattern>ORGANIZATIONS</pattern>
+			<template>
+				<getorganizations></getorganizations>
+			</template>
+		</category>
+		
+		<category>
+			<pattern>MONEY</pattern>
+			<template>
+				<getmoney></getmoney>
+			</template>
+		</category>
+		
+		<category>
+			<pattern>PERCENTAGES</pattern>
+			<template>
+				<getpercentages></getpercentages>
+			</template>
+		</category>
+		
+		<category>
 			<pattern>STOP</pattern>
 			<template>
 				<think><set name = "topic">default</set></think>
