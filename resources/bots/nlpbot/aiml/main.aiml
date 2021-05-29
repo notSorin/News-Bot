@@ -40,7 +40,7 @@
 		<category>
 			<pattern>*</pattern>
 			<template>
-				Got it. Hold on a moment while I extract the data from it.
+				<doextract></doextract>
 			</template>
 		</category>
 		

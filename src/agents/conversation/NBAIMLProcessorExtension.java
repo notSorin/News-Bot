@@ -18,7 +18,7 @@ import jade.lang.acl.ACLMessage;
  */
 class NBAIMLProcessorExtension extends PCAIMLProcessorExtension
 {
-	private final Set<String> NEW_TAGS = Utilities.stringSet("docluster");
+	private final Set<String> NEW_TAGS = Utilities.stringSet("docluster", "doextract");
 	private ConversationAgent _agent;
 	
 	public NBAIMLProcessorExtension(ConversationAgent agent)
@@ -39,11 +39,16 @@ class NBAIMLProcessorExtension extends PCAIMLProcessorExtension
 		
 		try
         {
-            String nodeName = node.getNodeName();
+            final String nodeName = node.getNodeName();
             
-            if(nodeName.equals("docluster"))
+            switch(nodeName)
             {
+            case "docluster":
             	sendClusterIntent(ps.input);
+            	break;
+            case "doextract":
+            	ret = "extracting now";
+            	break;
             }
         }
         catch(Exception ex)
