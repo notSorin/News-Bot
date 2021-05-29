@@ -2,6 +2,7 @@ package agents.informationextractor;
 
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import agents.AgentsEnums.MessageKey;
 import agents.AgentsEnums.MessageValue;
@@ -23,13 +24,38 @@ class InformationExtractorBehavior extends CyclicBehaviour
 	private static final String EXTRACT_EXCEPTION = "It seems that I was not able to perform this action.";
 	private static final String EXTRACTION_FAILURE = "I could not extract any information from the article.";
 	private static final String EXTRACTION_SUCCESS = "Information extraction completed.\nWhat information would you like to know about it?";
-	private static final List<String> ALLOWED_ANNOTATIONS = Arrays.asList("Person", "Date", "Location", "Organization", "Money", "Percent");
 	
+	//Strings with the names of the relevant annotations.
+	private static final String ANNOTATION_PERSON = "Person", ANNOTATION_DATE = "Date", ANNOTATION_LOCATION = "Location",
+			ANNOTATION_ORGANIZATION = "Organization", ANNOTATION_MONEY = "Money", ANNOTATION_PERCENT = "Percent";
+	
+	//A list with the names of the relevant annotations.
+	private static final List<String> ALLOWED_ANNOTATIONS = Arrays.asList(ANNOTATION_PERSON, ANNOTATION_DATE, ANNOTATION_LOCATION,
+			ANNOTATION_ORGANIZATION, ANNOTATION_MONEY, ANNOTATION_PERCENT);
+	
+	//A hash map holding all the values of each relevant annotation.
+	private HashMap<String, HashSet<String>> _annotations;
+	
+	//Handle to GATE used for extracting information from articles.
 	private final GATEHandle GATE_HANDLE;
 	
 	public InformationExtractorBehavior()
 	{
 		GATE_HANDLE = new GATEHandle();
+		
+		initializeMap();
+	}
+
+	private void initializeMap()
+	{
+		_annotations = new HashMap<>();
+		
+		_annotations.put(ANNOTATION_PERSON, new HashSet<String>());
+		_annotations.put(ANNOTATION_DATE, new HashSet<String>());
+		_annotations.put(ANNOTATION_LOCATION, new HashSet<String>());
+		_annotations.put(ANNOTATION_ORGANIZATION, new HashSet<String>());
+		_annotations.put(ANNOTATION_MONEY, new HashSet<String>());
+		_annotations.put(ANNOTATION_PERCENT, new HashSet<String>());
 	}
 
 	@SuppressWarnings("unchecked")
@@ -89,12 +115,17 @@ class InformationExtractorBehavior extends CyclicBehaviour
 
 				Document doc = Factory.newDocument(article);
 				
-				//Loop through each annotation in the document.
+				//Loop through each annotation in the document and add its value to the correct set.
 				for(Annotation annotation : annotations)
 				{
-					if(ALLOWED_ANNOTATIONS.contains(annotation.getType()))
+					final String type = annotation.getType();
+					
+					//Only focus on relevant annotations.
+					if(ALLOWED_ANNOTATIONS.contains(type))
 					{
-						ret += gate.Utils.stringFor(doc, annotation) + "\n";
+						final String annotationValue = gate.Utils.stringFor(doc, annotation); 
+						
+						_annotations.get(type).add(annotationValue);
 					}
 				}
 			}
