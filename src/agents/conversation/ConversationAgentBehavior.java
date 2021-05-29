@@ -47,6 +47,9 @@ class ConversationAgentBehavior extends CyclicBehaviour
 						agent.sendTelegramMessage(data);
 						break;
 					}
+					default:
+						//TODO
+						break;
 					}
 				}
 			}
