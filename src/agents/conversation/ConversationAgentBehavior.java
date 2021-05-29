@@ -34,13 +34,8 @@ class ConversationAgentBehavior extends CyclicBehaviour
 					switch(intent)
 					{
 					case RESPONSE_CLUSTER_ARTICLE:
-					{
-						final String data = (String)messageMap.get(MessageKey.INTENT_DATA);
-						
-						agent.sendTelegramMessage(data);
-						break;
-					}
 					case RESPONSE_EXTRACT_FROM_ARTICLE:
+					case RESPONSE_GET:
 					{
 						final String data = (String)messageMap.get(MessageKey.INTENT_DATA);
 						
