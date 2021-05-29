@@ -40,6 +40,13 @@ class ConversationAgentBehavior extends CyclicBehaviour
 						agent.sendTelegramMessage(data);
 						break;
 					}
+					case RESPONSE_EXTRACT_FROM_ARTICLE:
+					{
+						final String data = (String)messageMap.get(MessageKey.INTENT_DATA);
+						
+						agent.sendTelegramMessage(data);
+						break;
+					}
 					}
 				}
 			}
