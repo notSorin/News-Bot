@@ -4,6 +4,8 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
+
 import agents.AgentsEnums.MessageKey;
 import agents.AgentsEnums.MessageValue;
 import gate.Annotation;
@@ -35,6 +37,21 @@ class InformationExtractorBehavior extends CyclicBehaviour
 	//A list with the names of the relevant annotations.
 	private static final List<String> ALLOWED_ANNOTATIONS = Arrays.asList(ANNOTATION_PERSON, ANNOTATION_DATE, ANNOTATION_LOCATION,
 			ANNOTATION_ORGANIZATION, ANNOTATION_MONEY, ANNOTATION_PERCENT);
+	
+	//A hash map holding annotation names for each MessageValue requesting an annotation.
+	private static final HashMap<MessageValue, String> INTENT_VALUE_TO_ANNOTATION;
+	
+	static
+	{
+		INTENT_VALUE_TO_ANNOTATION = new HashMap<MessageValue, String>();
+		
+		INTENT_VALUE_TO_ANNOTATION.put(MessageValue.GET_EXTRACTED_PERSON, ANNOTATION_PERSON);
+		INTENT_VALUE_TO_ANNOTATION.put(MessageValue.GET_EXTRACTED_DATE, ANNOTATION_DATE);
+		INTENT_VALUE_TO_ANNOTATION.put(MessageValue.GET_EXTRACTED_LOCATION, ANNOTATION_LOCATION);
+		INTENT_VALUE_TO_ANNOTATION.put(MessageValue.GET_EXTRACTED_ORGANIZATION, ANNOTATION_ORGANIZATION);
+		INTENT_VALUE_TO_ANNOTATION.put(MessageValue.GET_EXTRACTED_MONEY, ANNOTATION_MONEY);
+		INTENT_VALUE_TO_ANNOTATION.put(MessageValue.GET_EXTRACTED_PERCENT, ANNOTATION_PERCENT);
+	}
 	
 	//A hash map holding all the values of each relevant annotation.
 	private HashMap<String, HashSet<String>> _annotations;
@@ -91,33 +108,16 @@ class InformationExtractorBehavior extends CyclicBehaviour
 						break;
 					}
 					case GET_EXTRACTED_PERSON:
-					{
-
-						break;
-					}
 					case GET_EXTRACTED_DATE:
-					{
-
-						break;
-					}
 					case GET_EXTRACTED_LOCATION:
-					{
-
-						break;
-					}
 					case GET_EXTRACTED_ORGANIZATION:
-					{
-
-						break;
-					}
 					case GET_EXTRACTED_MONEY:
-					{
-
-						break;
-					}
 					case GET_EXTRACTED_PERCENT:
 					{
-
+						String result = getAnnotations(intent);
+						
+						agent.respondToRequest(intent, result);
+						
 						break;
 					}
 					default:
@@ -131,6 +131,45 @@ class InformationExtractorBehavior extends CyclicBehaviour
 				agent.respondToRequest(MessageValue.RESPONSE_EXTRACT_FROM_ARTICLE, EXTRACT_EXCEPTION);
 			}
 		}
+	}
+
+	/**
+	 * Gets the annotations for a specific intent requesting an annotation.
+	 * @param mv The intent value requesting a specific annotation.
+	 * @return The string with the annotations, or an error string.
+	 */
+	private String getAnnotations(MessageValue mv)
+	{
+		String result = null;
+		
+		if(_articleProcessed)
+		{
+			final String setName = intentValueToAnnotation(mv);
+			
+			if(setName != null)
+			{
+				final String annotations = getDataFromSet(setName);
+				
+				if(annotations != null)
+				{
+					result = GET_SUCCESS + annotations;
+				}
+				else
+				{
+					result = GET_FAIL;
+				}
+			}
+			else
+			{
+				result = GET_FAIL;
+			}
+		}
+		else
+		{
+			result = NO_ARTICLE_PROCESSED;
+		}
+		
+		return result;
 	}
 
 	/**
