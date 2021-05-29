@@ -144,7 +144,7 @@ class InformationExtractorBehavior extends CyclicBehaviour
 		
 		if(_articleProcessed)
 		{
-			final String setName = intentValueToAnnotation(mv);
+			final String setName = INTENT_VALUE_TO_ANNOTATION.get(mv);
 			
 			if(setName != null)
 			{
