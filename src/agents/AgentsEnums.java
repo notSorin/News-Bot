@@ -18,6 +18,6 @@ public class AgentsEnums
 	//MessageValues are used as values for the hash maps sent as messages.
 	public enum MessageValue
 	{
-		CLUSTER_ARTICLE, RESPONSE_CLUSTER_ARTICLE, EXTRACT_FROM_ARTICLE
+		CLUSTER_ARTICLE, RESPONSE_CLUSTER_ARTICLE, EXTRACT_FROM_ARTICLE, RESPONSE_EXTRACT_FROM_ARTICLE
 	}
 }
