@@ -19,7 +19,15 @@ import jade.lang.acl.ACLMessage;
  */
 class NBAIMLProcessorExtension extends PCAIMLProcessorExtension
 {
-	private final Set<String> NEW_TAGS = Utilities.stringSet("docluster", "doextract");
+	//Constants for each action the user can ask the program to perform.
+	private static final String DO_CLUSTER = "docluster", DO_EXTRACT = "doextract", GET_PEOPLE = "getpeople",
+			GET_DATES = "getdates", GET_LOCATIONS = "getlocations", GET_ORGANIZATIONS = "getorganizations",
+			GET_MONEY = "getmoney", GET_PERCENTAGES = "getpercentages";
+	
+	//The set with the new AIML tags.
+	private final Set<String> NEW_TAGS = Utilities.stringSet(DO_CLUSTER, DO_EXTRACT, GET_PEOPLE, GET_DATES,
+			GET_LOCATIONS, GET_ORGANIZATIONS, GET_MONEY, GET_PERCENTAGES);
+	
 	private ConversationAgent _agent;
 	
 	public NBAIMLProcessorExtension(ConversationAgent agent)
@@ -44,11 +52,29 @@ class NBAIMLProcessorExtension extends PCAIMLProcessorExtension
             
             switch(nodeName)
             {
-            case "docluster":
+            case DO_CLUSTER:
             	sendIntent(ClusteringAgent.class.getSimpleName(), MessageValue.CLUSTER_ARTICLE, ps.input);
             	break;
-            case "doextract":
+            case DO_EXTRACT:
             	sendIntent(InformationExtractorAgent.class.getSimpleName(), MessageValue.EXTRACT_FROM_ARTICLE, ps.input);
+            	break;
+            case GET_PEOPLE:
+            	sendIntent(InformationExtractorAgent.class.getSimpleName(), MessageValue.GET_EXTRACTED_PERSON, null);
+            	break;
+            case GET_DATES:
+            	sendIntent(InformationExtractorAgent.class.getSimpleName(), MessageValue.GET_EXTRACTED_DATE, null);
+            	break;
+            case GET_LOCATIONS:
+            	sendIntent(InformationExtractorAgent.class.getSimpleName(), MessageValue.GET_EXTRACTED_LOCATION, null);
+            	break;
+            case GET_ORGANIZATIONS:
+            	sendIntent(InformationExtractorAgent.class.getSimpleName(), MessageValue.GET_EXTRACTED_ORGANIZATION, null);
+            	break;
+            case GET_MONEY:
+            	sendIntent(InformationExtractorAgent.class.getSimpleName(), MessageValue.GET_EXTRACTED_MONEY, null);
+            	break;
+            case GET_PERCENTAGES:
+            	sendIntent(InformationExtractorAgent.class.getSimpleName(), MessageValue.GET_EXTRACTED_PERCENT, null);
             	break;
             }
         }
