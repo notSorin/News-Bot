@@ -47,7 +47,7 @@ class NBAIMLProcessorExtension extends PCAIMLProcessorExtension
             	sendClusterIntent(ps.input);
             	break;
             case "doextract":
-            	ret = "extracting now";
+            	sendExtractIntent(ps.input);
             	break;
             }
         }
@@ -83,5 +83,14 @@ class NBAIMLProcessorExtension extends PCAIMLProcessorExtension
 		{
 			e.printStackTrace();
 		}		
+	}
+	
+	/**
+	 * Sends an intent to the Information Extracor Agent.
+	 * @param article The string of the article on which to perform information extraction.
+	 */
+	private void sendExtractIntent(String article)
+	{
+		
 	}
 }
