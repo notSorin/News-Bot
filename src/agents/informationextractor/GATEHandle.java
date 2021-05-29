@@ -14,7 +14,7 @@ import gate.util.persistence.PersistenceManager;
  * @author Sorin
  *
  */
-public class GATEHandle
+class GATEHandle
 {
 	private CorpusController _controller;
 	
