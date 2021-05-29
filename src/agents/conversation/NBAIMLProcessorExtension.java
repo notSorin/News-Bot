@@ -9,6 +9,7 @@ import org.w3c.dom.Node;
 import agents.AgentsEnums.MessageKey;
 import agents.AgentsEnums.MessageValue;
 import agents.clustering.ClusteringAgent;
+import agents.informationextractor.InformationExtractorAgent;
 import jade.core.AID;
 import jade.lang.acl.ACLMessage;
 
@@ -44,10 +45,10 @@ class NBAIMLProcessorExtension extends PCAIMLProcessorExtension
             switch(nodeName)
             {
             case "docluster":
-            	sendClusterIntent(ps.input);
+            	sendIntent(ClusteringAgent.class.getSimpleName(), MessageValue.CLUSTER_ARTICLE, ps.input);
             	break;
             case "doextract":
-            	sendExtractIntent(ps.input);
+            	sendIntent(InformationExtractorAgent.class.getSimpleName(), MessageValue.EXTRACT_FROM_ARTICLE, ps.input);
             	break;
             }
         }
@@ -60,19 +61,21 @@ class NBAIMLProcessorExtension extends PCAIMLProcessorExtension
 	}
 
 	/**
-	 * Sends an intent to the Clustering Agent.
-	 * @param article The string of the article to perform clustering on.
+	 * Sends an intent message to an Agent.
+	 * @param recepientAgentName The name of the agent to whom the intent message is sent. 
+	 * @param intent The intended action of the intent.
+	 * @param intentData The data to send along with the intent.
 	 */
-	private void sendClusterIntent(String article)
+	private void sendIntent(String recepientAgentName, MessageValue intent, Object intentData)
 	{
 		HashMap<MessageKey, Object> aclContent = new HashMap<MessageKey, Object>();
 
-		aclContent.put(MessageKey.INTENT, MessageValue.CLUSTER_ARTICLE);
-		aclContent.put(MessageKey.INTENT_DATA, article);
+		aclContent.put(MessageKey.INTENT, intent);
+		aclContent.put(MessageKey.INTENT_DATA, intentData);
 		
 		ACLMessage aclMessage = new ACLMessage(ACLMessage.INFORM);
 
-		aclMessage.addReceiver(new AID(ClusteringAgent.class.getSimpleName(), AID.ISLOCALNAME));
+		aclMessage.addReceiver(new AID(recepientAgentName, AID.ISLOCALNAME));
 		
 		try
 		{
@@ -82,15 +85,6 @@ class NBAIMLProcessorExtension extends PCAIMLProcessorExtension
 		catch(Exception e)
 		{
 			e.printStackTrace();
-		}		
-	}
-	
-	/**
-	 * Sends an intent to the Information Extracor Agent.
-	 * @param article The string of the article on which to perform information extraction.
-	 */
-	private void sendExtractIntent(String article)
-	{
-		
+		}
 	}
 }
