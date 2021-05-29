@@ -84,6 +84,36 @@ class InformationExtractorBehavior extends CyclicBehaviour
 						agent.respondToRequest(MessageValue.RESPONSE_EXTRACT_FROM_ARTICLE, extractionResult);
 						break;
 					}
+					case GET_EXTRACTED_PERSON:
+					{
+
+						break;
+					}
+					case GET_EXTRACTED_DATE:
+					{
+
+						break;
+					}
+					case GET_EXTRACTED_LOCATION:
+					{
+
+						break;
+					}
+					case GET_EXTRACTED_ORGANIZATION:
+					{
+
+						break;
+					}
+					case GET_EXTRACTED_MONEY:
+					{
+
+						break;
+					}
+					case GET_EXTRACTED_PERCENT:
+					{
+
+						break;
+					}
 					default:
 						//TODO
 						break;
@@ -136,5 +166,28 @@ class InformationExtractorBehavior extends CyclicBehaviour
 		}
 		
 		return ret;
+	}
+	
+	/**
+	 * Generates a string with all the values from an annotations set contained in annotations.
+	 * @param setName The name of the set from which to get the annotations.
+	 * @return A string with all the values in the set with name setName, or null on error.
+	 */
+	private String getDataFromSet(String setName)
+	{
+		String data = null;
+		HashSet<String> set = _annotations.get(setName);
+		
+		if(set != null)
+		{
+			data = "";
+			
+			for(String s : set)
+			{
+				data += s + "\n";
+			}
+		}
+		
+		return data;
 	}
 }
