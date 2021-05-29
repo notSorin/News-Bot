@@ -14,4 +14,13 @@ public class InformationExtractorAgent extends Agent
 	{
 		addBehaviour(new InformationExtractorBehavior());
 	}
+
+	/**
+	 * Sends a response message to the conversation agent, containing the result from extracting information from an article.
+	 * @param extractionResult The result of performing the information extraction.
+	 */
+	public void respondToExtractRequest(String extractionResult)
+	{
+		//TODO
+	}
 }
