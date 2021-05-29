@@ -36,9 +36,8 @@ class ConversationAgentBehavior extends CyclicBehaviour
 					case RESPONSE_CLUSTER_ARTICLE:
 					{
 						final String data = (String)messageMap.get(MessageKey.INTENT_DATA);
-						final String chatId = agent.getLastUpdate().getMessage().getChatId().toString();
 						
-						agent.getTelegramChatbot().sendMessage(data, chatId);
+						agent.sendTelegramMessage(data);
 						break;
 					}
 					}
