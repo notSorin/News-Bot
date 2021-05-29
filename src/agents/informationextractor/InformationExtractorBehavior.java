@@ -39,7 +39,7 @@ class InformationExtractorBehavior extends CyclicBehaviour
 						String article = (String)messageMap.get(MessageKey.INTENT_DATA);
 						String extractionResult = performExtraction(article);
 						
-						agent.respondToExtractRequest(extractionResult);
+						agent.respondToRequest(MessageValue.RESPONSE_EXTRACT_FROM_ARTICLE, extractionResult);
 						break;
 					}
 					default:
@@ -50,7 +50,7 @@ class InformationExtractorBehavior extends CyclicBehaviour
 			}
 			catch(Exception e)
 			{
-				agent.respondToExtractRequest(EXTRACT_EXCEPTION);
+				agent.respondToRequest(MessageValue.RESPONSE_EXTRACT_FROM_ARTICLE, EXTRACT_EXCEPTION);
 			}
 		}
 	}
