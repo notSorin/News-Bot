@@ -84,6 +84,17 @@ public class ConversationAgent extends Agent
 	    }
 	}
 	
+	/**
+	 * Sends a Telegram message to the chat in the last Update received.
+	 * @param message Message text to send to the Telegram chat.
+	 */
+	void sendTelegramMessage(String message)
+	{
+		final String chatId = _lastUpdate.getMessage().getChatId().toString();
+		
+		_telegramBot.sendMessage(message, chatId);
+	}
+	
 	TelegramChatbot getTelegramChatbot()
 	{
 		return _telegramBot;
