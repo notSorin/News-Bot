@@ -42,9 +42,12 @@ class InformationExtractorBehavior extends CyclicBehaviour
 	//Handle to GATE used for extracting information from articles.
 	private final GATEHandle GATE_HANDLE;
 	
+	private boolean _articleProcessed;
+	
 	public InformationExtractorBehavior()
 	{
 		GATE_HANDLE = new GATEHandle();
+		_articleProcessed = false;
 		
 		initializeAnnotationsMap();
 	}
@@ -140,6 +143,8 @@ class InformationExtractorBehavior extends CyclicBehaviour
 		String ret = EXTRACTION_FAILURE;
 		AnnotationSet annotations = GATE_HANDLE.getAnnotations(article);
 		
+		_articleProcessed = false;
+		
 		try
 		{
 			if(annotations != null && !annotations.isEmpty())
@@ -163,11 +168,14 @@ class InformationExtractorBehavior extends CyclicBehaviour
 						_annotations.get(type).add(annotationValue);
 					}
 				}
+				
+				_articleProcessed = true;
 			}
 		}
 		catch(Exception e)
 		{
 			ret = EXTRACTION_FAILURE;
+			_articleProcessed = false;
 		}
 		
 		return ret;
