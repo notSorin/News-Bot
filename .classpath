@@ -11,5 +11,6 @@
 	<classpathentry kind="lib" path="lib/jade.jar"/>
 	<classpathentry kind="lib" path="lib/mallet.jar"/>
 	<classpathentry kind="lib" path="lib/mallet-deps.jar"/>
+	<classpathentry kind="lib" path="lib/gate-core-9.0.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
