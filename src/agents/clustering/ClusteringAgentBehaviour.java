@@ -50,6 +50,9 @@ class ClusteringAgentBehaviour extends CyclicBehaviour
 						agent.respondToClusterRequest(clusteringResult);
 						break;
 					}
+					default:
+						//TODO
+						break;
 					}
 				}
 			}

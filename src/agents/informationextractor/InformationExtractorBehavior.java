@@ -43,6 +43,7 @@ class InformationExtractorBehavior extends CyclicBehaviour
 						break;
 					}
 					default:
+						//TODO
 						break;
 					}
 				}
@@ -54,6 +55,11 @@ class InformationExtractorBehavior extends CyclicBehaviour
 		}
 	}
 
+	/**
+	 * Obtains relevant information from a news article and stores it in memory.
+	 * @param article A news article's text.
+	 * @return A string with the result of performing the extraction: Either indicating success, or failure.
+	 */
 	private String performExtraction(String article)
 	{
 		//TODO
