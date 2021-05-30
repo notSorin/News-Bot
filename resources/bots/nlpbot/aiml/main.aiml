@@ -154,9 +154,23 @@ Extract information from an article and perform clustering to figure out what an
 		</category>
 		
 		<category>
+			<pattern>$GET PEOPLE</pattern>
+			<template>
+				<srai>PEOPLE</srai>
+			</template>
+		</category>
+		
+		<category>
 			<pattern>$PERSON</pattern>
 			<template>
-				<getpeople></getpeople>
+				<srai>PEOPLE</srai>
+			</template>
+		</category>
+		
+		<category>
+			<pattern>$GET PERSON</pattern>
+			<template>
+				<srai>PEOPLE</srai>
 			</template>
 		</category>
 		
@@ -168,9 +182,37 @@ Extract information from an article and perform clustering to figure out what an
 		</category>
 		
 		<category>
+			<pattern>$GET DATES</pattern>
+			<template>
+				<srai>DATES</srai>
+			</template>
+		</category>
+		
+		<category>
 			<pattern>$DATE</pattern>
 			<template>
-				<getdates></getdates>
+				<srai>DATES</srai>
+			</template>
+		</category>
+		
+		<category>
+			<pattern>$GET DATE</pattern>
+			<template>
+				<srai>DATES</srai>
+			</template>
+		</category>
+		
+		<category>
+			<pattern>$TIME</pattern>
+			<template>
+				<srai>DATES</srai>
+			</template>
+		</category>
+		
+		<category>
+			<pattern>$GET TIME</pattern>
+			<template>
+				<srai>DATES</srai>
 			</template>
 		</category>
 		
@@ -182,9 +224,23 @@ Extract information from an article and perform clustering to figure out what an
 		</category>
 		
 		<category>
+			<pattern>$GET LOCATIONS</pattern>
+			<template>
+				<srai>LOCATIONS</srai>
+			</template>
+		</category>
+		
+		<category>
 			<pattern>$LOCATION</pattern>
 			<template>
-				<getlocations></getlocations>
+				<srai>LOCATIONS</srai>
+			</template>
+		</category>
+		
+		<category>
+			<pattern>$GET LOCATION</pattern>
+			<template>
+				<srai>LOCATIONS</srai>
 			</template>
 		</category>
 		
@@ -196,9 +252,23 @@ Extract information from an article and perform clustering to figure out what an
 		</category>
 		
 		<category>
+			<pattern>$GET ORGANIZATIONS</pattern>
+			<template>
+				<srai>ORGANIZATIONS</srai>
+			</template>
+		</category>
+		
+		<category>
 			<pattern>$ORGANIZATION</pattern>
 			<template>
-				<getorganizations></getorganizations>
+				<srai>ORGANIZATIONS</srai>
+			</template>
+		</category>
+		
+		<category>
+			<pattern>$GET ORGANIZATION</pattern>
+			<template>
+				<srai>ORGANIZATIONS</srai>
 			</template>
 		</category>
 		
@@ -210,6 +280,13 @@ Extract information from an article and perform clustering to figure out what an
 		</category>
 		
 		<category>
+			<pattern>$GET MONEY</pattern>
+			<template>
+				<srai>MONEY</srai>
+			</template>
+		</category>
+		
+		<category>
 			<pattern>$PERCENTAGES</pattern>
 			<template>
 				<getpercentages></getpercentages>
@@ -217,16 +294,37 @@ Extract information from an article and perform clustering to figure out what an
 		</category>
 		
 		<category>
+			<pattern>$GET PERCENTAGES</pattern>
+			<template>
+				<srai>PERCENTAGES</srai>
+			</template>
+		</category>
+		
+		<category>
 			<pattern>$PERCENTAGE</pattern>
 			<template>
-				<getpercentages></getpercentages>
+				<srai>PERCENTAGES</srai>
+			</template>
+		</category>
+		
+		<category>
+			<pattern>$GET PERCENTAGE</pattern>
+			<template>
+				<srai>PERCENTAGES</srai>
 			</template>
 		</category>
 		
 		<category>
 			<pattern>$PERCENT</pattern>
 			<template>
-				<getpercentages></getpercentages>
+				<srai>PERCENTAGES</srai>
+			</template>
+		</category>
+		
+		<category>
+			<pattern>$GET PERCENT</pattern>
+			<template>
+				<srai>PERCENTAGES</srai>
 			</template>
 		</category>
 		
