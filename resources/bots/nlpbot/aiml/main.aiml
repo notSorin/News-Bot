@@ -4,7 +4,7 @@
 	<category>
 		<pattern>HI</pattern>
 		<template>
-			Hello, I'm the DASI chatbot. I can do two things for you:
+			Hello, I'm the DASI News Chatbot. I can do two things for you:
 			Extract information from an article and perform clustering to figure out what an article is about.
 		</template>
 	</category>
