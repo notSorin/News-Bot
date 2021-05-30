@@ -3,7 +3,45 @@
 <aiml>
 	<category>
 		<pattern>HI</pattern>
-		<template>Hey there!</template>
+		<template>
+			Hello, I'm the DASI chatbot. I can do two things for you:
+			Extract information from an article and perform clustering to figure out what an article is about.
+		</template>
+	</category>
+	
+	<category>
+		<pattern>HELLO</pattern>
+		<template>
+            <srai>HI</srai>
+        </template>
+	</category>
+	
+	<category>
+		<pattern>HELLO *</pattern>
+		<template>
+            <srai>HI</srai>
+        </template>
+	</category>
+	
+	<category>
+		<pattern>HI *</pattern>
+		<template>
+            <srai>HI</srai>
+        </template>
+	</category>
+	
+	<category>
+		<pattern>HEY *</pattern>
+		<template>
+            <srai>HI</srai>
+        </template>
+	</category>
+	
+	<category>
+		<pattern>HEY</pattern>
+		<template>
+            <srai>HI</srai>
+        </template>
 	</category>
 	
 	<category>
@@ -14,9 +52,64 @@
 	</category>
 	
 	<category>
+		<pattern>STOP *</pattern>
+		<template>
+			<srai>STOP</srai>
+		</template>
+	</category>
+	
+	<category>
+		<pattern>_ STOP</pattern>
+		<template>
+			<srai>STOP</srai>
+		</template>
+	</category>
+	
+	<category>
+		<pattern>_ STOP *</pattern>
+		<template>
+			<srai>STOP</srai>
+		</template>
+	</category>
+	
+	<category>
+		<pattern>ENOUGH</pattern>
+		<template>
+			<srai>STOP</srai>
+		</template>
+	</category>
+	
+	<category>
+		<pattern>ENOUGH *</pattern>
+		<template>
+			<srai>STOP</srai>
+		</template>
+	</category>
+	
+	<category>
+		<pattern>_ ENOUGH</pattern>
+		<template>
+			<srai>STOP</srai>
+		</template>
+	</category>
+	
+	<category>
+		<pattern>_ ENOUGH *</pattern>
+		<template>
+			<srai>STOP</srai>
+		</template>
+		</category>
+	
+	<category>
 		<pattern>BYE</pattern>
 		<template>
-			Goodbye :(
+			<random>
+	            <li>Goodbye.</li>
+	            <li>Bye.</li>
+	            <li>See you later.</li>
+	            <li>See you soon.</li>
+            	<li>I'll be around.</li>
+         </random>
 		</template>
 	</category>
 	
@@ -24,15 +117,177 @@
 		<pattern>EXTRACT</pattern>
 		<template>
 			<think><set name = "topic">extract-information</set></think>
-			OK, send me the article and I'll see what I can extract from it.
+			<random>
+	            <li>OK, send me the article and I'll see what I can extract from it.</li>
+	            <li>I can do that, send me the article and I'll see what I can extract from it.</li>
+	            <li>Let's do some information extraction. Send me the article.</li>
+	        </random>
 		</template>
 	</category>
+	
+	<category>
+		<pattern>EXTRACT *</pattern>
+		<template>
+			<srai>EXTRACT</srai>
+		</template>
+	</category>
+	
+	<category>
+		<pattern>_ EXTRACT</pattern>
+		<template>
+			<srai>EXTRACT</srai>
+		</template>
+	</category>
+	
+	<category>
+		<pattern>_ EXTRACT *</pattern>
+		<template>
+			<srai>EXTRACT</srai>
+		</template>
+	</category>
+	
+	<category>
+		<pattern>EXTRACTION</pattern>
+		<template>
+			<srai>EXTRACT</srai>
+		</template>
+	</category>
+	
+	<category>
+		<pattern>EXTRACTION *</pattern>
+		<template>
+			<srai>EXTRACT</srai>
+		</template>
+	</category>
+	
+	<category>
+		<pattern>_ EXTRACTION</pattern>
+		<template>
+			<srai>EXTRACT</srai>
+		</template>
+	</category>
+	
+	<category>
+		<pattern>_ EXTRACTION *</pattern>
+		<template>
+			<srai>EXTRACT</srai>
+		</template>
+	</category>
+	
+	<category>
+		<pattern>ANALYZE</pattern>
+		<template>
+			<srai>EXTRACT</srai>
+		</template>
+	</category>
+	
+	<category>
+		<pattern>ANALYZE *</pattern>
+		<template>
+			<srai>EXTRACT</srai>
+		</template>
+	</category>
+	
+	<category>
+		<pattern>_ ANALYZE</pattern>
+		<template>
+			<srai>EXTRACT</srai>
+		</template>
+	</category>
+	
+	<category>
+		<pattern>_ ANALYZE *</pattern>
+		<template>
+			<srai>EXTRACT</srai>
+		</template>
+	</category>
+	
+	<category>
+		<pattern>INFORMATION</pattern>
+		<template>
+			<srai>EXTRACT</srai>
+		</template>
+	</category>
+	
+	<category>
+		<pattern>INFORMATION *</pattern>
+		<template>
+			<srai>EXTRACT</srai>
+		</template>
+	</category>
+	
+	<category>
+		<pattern>_ INFORMATION</pattern>
+		<template>
+			<srai>EXTRACT</srai>
+		</template>
+	</category>
+	
+	<category>
+		<pattern>_ INFORMATION *</pattern>
+		<template>
+			<srai>EXTRACT</srai>
+		</template>
+	</category>	
 	
 	<category>
 		<pattern>CLUSTER</pattern>
 		<template>
 			<think><set name = "topic">cluster-article</set></think>
-			Let's do some clustering. Send me the article, and I'll tell you some key words representing it.
+			<random>
+	            <li>Let's do some clustering. Send me the article, and I'll tell you some key words representing it.</li>
+	            <li>It's clustering time. Send the article my way and I'll see what I can figure out.</li>
+	            <li>Send the article, and I'll see where it belongs.</li>
+	        </random>
+		</template>
+	</category>
+	
+	<category>
+		<pattern>CLUSTER *</pattern>
+		<template>
+			<srai>CLUSTER</srai>
+		</template>
+	</category>
+	
+	<category>
+		<pattern>_ CLUSTER</pattern>
+		<template>
+			<srai>CLUSTER</srai>
+		</template>
+	</category>
+	
+	<category>
+		<pattern>_ CLUSTER *</pattern>
+		<template>
+			<srai>CLUSTER</srai>
+		</template>
+	</category>
+	
+	<category>
+		<pattern>CLUSTERING</pattern>
+		<template>
+			<srai>CLUSTER</srai>
+		</template>
+	</category>
+	
+	<category>
+		<pattern>CLUSTERING *</pattern>
+		<template>
+			<srai>CLUSTER</srai>
+		</template>
+	</category>
+	
+	<category>
+		<pattern>_ CLUSTERING</pattern>
+		<template>
+			<srai>CLUSTER</srai>
+		</template>
+	</category>
+	
+	<category>
+		<pattern>_ CLUSTERING *</pattern>
+		<template>
+			<srai>CLUSTER</srai>
 		</template>
 	</category>
 	
@@ -90,7 +345,126 @@
 			<pattern>STOP</pattern>
 			<template>
 				<think><set name = "topic">default</set></think>
-				Enough information extraction... Let's do something else.
+				<random>
+		            <li>Enough information extraction... Let's do something else.</li>
+		            <li>Alright, to something else then...</li>
+		            <li>What do we do now?</li>
+		            <li>What's next?</li>
+		            <li>As you wish.</li>
+		            <li>Sure thing.</li>
+	        	</random>
+			</template>
+		</category>
+		
+		<category>
+			<pattern>STOP *</pattern>
+			<template>
+				<srai>STOP</srai>
+			</template>
+		</category>
+		
+		<category>
+			<pattern>_ STOP</pattern>
+			<template>
+				<srai>STOP</srai>
+			</template>
+		</category>
+		
+		<category>
+			<pattern>_ STOP *</pattern>
+			<template>
+				<srai>STOP</srai>
+			</template>
+		</category>
+		
+		<category>
+			<pattern>ENOUGH</pattern>
+			<template>
+				<srai>STOP</srai>
+			</template>
+		</category>
+		
+		<category>
+			<pattern>ENOUGH *</pattern>
+			<template>
+				<srai>STOP</srai>
+			</template>
+		</category>
+		
+		<category>
+			<pattern>_ ENOUGH</pattern>
+			<template>
+				<srai>STOP</srai>
+			</template>
+		</category>
+		
+		<category>
+			<pattern>_ ENOUGH *</pattern>
+			<template>
+				<srai>STOP</srai>
+			</template>
+		</category>
+		
+		<category>
+			<pattern>DO SOMETHING ELSE</pattern>
+			<template>
+				<srai>STOP</srai>
+			</template>
+		</category>
+		
+		<category>
+			<pattern>SOMETHING ELSE *</pattern>
+			<template>
+				<srai>STOP</srai>
+			</template>
+		</category>
+		
+		<category>
+			<pattern>_ SOMETHING ELSE</pattern>
+			<template>
+				<srai>STOP</srai>
+			</template>
+		</category>
+		
+		<category>
+			<pattern>_ SOMETHING ELSE *</pattern>
+			<template>
+				<srai>STOP</srai>
+			</template>
+		</category>
+		
+		<category>
+			<pattern>GO BACK</pattern>
+			<template>
+				<srai>STOP</srai>
+			</template>
+		</category>
+		
+		<category>
+			<pattern>GO BACK *</pattern>
+			<template>
+				<srai>STOP</srai>
+			</template>
+		</category>
+		
+		<category>
+			<pattern>_ GO BACK</pattern>
+			<template>
+				<srai>STOP</srai>
+			</template>
+		</category>
+		
+		<category>
+			<pattern>_ GO BACK *</pattern>
+			<template>
+				<srai>STOP</srai>
+			</template>
+		</category>
+		
+		<category>
+			<pattern>BACK</pattern>
+			<template>
+				<srai>STOP</srai>
 			</template>
 		</category>
 	</topic>
@@ -107,7 +481,126 @@
 			<pattern>STOP</pattern>
 			<template>
 				<think><set name = "topic">default</set></think>
-				Alright, to something else then...
+				<random>
+		            <li>Enough clustering... Let's do something else.</li>
+		            <li>Alright, to something else then...</li>
+		            <li>What do we do now?</li>
+		            <li>What's next?</li>
+		            <li>As you wish.</li>
+		            <li>Sure thing.</li>
+	        	</random>
+			</template>
+		</category>
+		
+		<category>
+			<pattern>STOP *</pattern>
+			<template>
+				<srai>STOP</srai>
+			</template>
+		</category>
+		
+		<category>
+			<pattern>_ STOP</pattern>
+			<template>
+				<srai>STOP</srai>
+			</template>
+		</category>
+		
+		<category>
+			<pattern>_ STOP *</pattern>
+			<template>
+				<srai>STOP</srai>
+			</template>
+		</category>
+		
+		<category>
+			<pattern>ENOUGH</pattern>
+			<template>
+				<srai>STOP</srai>
+			</template>
+		</category>
+		
+		<category>
+			<pattern>ENOUGH *</pattern>
+			<template>
+				<srai>STOP</srai>
+			</template>
+		</category>
+		
+		<category>
+			<pattern>_ ENOUGH</pattern>
+			<template>
+				<srai>STOP</srai>
+			</template>
+		</category>
+		
+		<category>
+			<pattern>_ ENOUGH *</pattern>
+			<template>
+				<srai>STOP</srai>
+			</template>
+		</category>
+		
+		<category>
+			<pattern>DO SOMETHING ELSE</pattern>
+			<template>
+				<srai>STOP</srai>
+			</template>
+		</category>
+		
+		<category>
+			<pattern>SOMETHING ELSE *</pattern>
+			<template>
+				<srai>STOP</srai>
+			</template>
+		</category>
+		
+		<category>
+			<pattern>_ SOMETHING ELSE</pattern>
+			<template>
+				<srai>STOP</srai>
+			</template>
+		</category>
+		
+		<category>
+			<pattern>_ SOMETHING ELSE *</pattern>
+			<template>
+				<srai>STOP</srai>
+			</template>
+		</category>
+		
+		<category>
+			<pattern>GO BACK</pattern>
+			<template>
+				<srai>STOP</srai>
+			</template>
+		</category>
+		
+		<category>
+			<pattern>GO BACK *</pattern>
+			<template>
+				<srai>STOP</srai>
+			</template>
+		</category>
+		
+		<category>
+			<pattern>_ GO BACK</pattern>
+			<template>
+				<srai>STOP</srai>
+			</template>
+		</category>
+		
+		<category>
+			<pattern>_ GO BACK *</pattern>
+			<template>
+				<srai>STOP</srai>
+			</template>
+		</category>
+		
+		<category>
+			<pattern>BACK</pattern>
+			<template>
+				<srai>STOP</srai>
 			</template>
 		</category>
 	</topic>
