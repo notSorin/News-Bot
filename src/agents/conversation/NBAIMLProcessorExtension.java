@@ -25,6 +25,9 @@ class NBAIMLProcessorExtension extends PCAIMLProcessorExtension
 	//A message error to show when an article does not have a minimum length.
 	private static final String ARTICLE_ERROR = "If you were trying to send me an article, make sure it's at least %d characters long; otherwise I didn't understand what you meant.";
 	
+	private static final String CLUSTER_PETITION_RECEIVED = "I got the article. Hold on a moment while I figure out some keywords about it.";
+	private static final String EXTRACT_PETITION_RECEIVED = "I got the article. Hold on a moment while I extract information from it.";
+	
 	//Constants for each action the user can ask the program to perform.
 	private static final String DO_CLUSTER = "docluster", DO_EXTRACT = "doextract", GET_PEOPLE = "getpeople",
 			GET_DATES = "getdates", GET_LOCATIONS = "getlocations", GET_ORGANIZATIONS = "getorganizations",
@@ -62,6 +65,8 @@ class NBAIMLProcessorExtension extends PCAIMLProcessorExtension
             	if(ps.input.length() >= MIN_ARTICLE_LENGTH)
             	{
             		sendIntent(ClusteringAgent.class.getSimpleName(), MessageValue.CLUSTER_ARTICLE, ps.input);
+            		
+            		ret = CLUSTER_PETITION_RECEIVED;
             	}
             	else
             	{
@@ -72,6 +77,8 @@ class NBAIMLProcessorExtension extends PCAIMLProcessorExtension
             	if(ps.input.length() >= MIN_ARTICLE_LENGTH)
             	{
             		sendIntent(InformationExtractorAgent.class.getSimpleName(), MessageValue.EXTRACT_FROM_ARTICLE, ps.input);
+            	
+            		ret = EXTRACT_PETITION_RECEIVED;
             	}
             	else
             	{
