@@ -5,40 +5,27 @@
 		<pattern>HI</pattern>
 		<template>
 			Hello, I'm the DASI News Chatbot. I can do two things for you:
-			Extract information from an article and perform clustering to figure out what an article is about.
+
+Extract information from an article and perform clustering to figure out what an article is about.
 		</template>
 	</category>
 	
 	<category>
-		<pattern>HELLO</pattern>
+		<pattern>^ HELLO ^</pattern>
 		<template>
             <srai>HI</srai>
         </template>
 	</category>
 	
 	<category>
-		<pattern>HELLO *</pattern>
+		<pattern>^ HI ^</pattern>
 		<template>
             <srai>HI</srai>
         </template>
 	</category>
 	
 	<category>
-		<pattern>HI *</pattern>
-		<template>
-            <srai>HI</srai>
-        </template>
-	</category>
-	
-	<category>
-		<pattern>HEY *</pattern>
-		<template>
-            <srai>HI</srai>
-        </template>
-	</category>
-	
-	<category>
-		<pattern>HEY</pattern>
+		<pattern>^ HEY ^</pattern>
 		<template>
             <srai>HI</srai>
         </template>
@@ -52,21 +39,7 @@
 	</category>
 	
 	<category>
-		<pattern>STOP *</pattern>
-		<template>
-			<srai>STOP</srai>
-		</template>
-	</category>
-	
-	<category>
-		<pattern>_ STOP</pattern>
-		<template>
-			<srai>STOP</srai>
-		</template>
-	</category>
-	
-	<category>
-		<pattern>_ STOP *</pattern>
+		<pattern>^ STOP ^</pattern>
 		<template>
 			<srai>STOP</srai>
 		</template>
@@ -80,25 +53,11 @@
 	</category>
 	
 	<category>
-		<pattern>ENOUGH *</pattern>
+		<pattern>^ ENOUGH ^</pattern>
 		<template>
 			<srai>STOP</srai>
 		</template>
 	</category>
-	
-	<category>
-		<pattern>_ ENOUGH</pattern>
-		<template>
-			<srai>STOP</srai>
-		</template>
-	</category>
-	
-	<category>
-		<pattern>_ ENOUGH *</pattern>
-		<template>
-			<srai>STOP</srai>
-		</template>
-		</category>
 	
 	<category>
 		<pattern>BYE</pattern>
@@ -126,105 +85,28 @@
 	</category>
 	
 	<category>
-		<pattern>EXTRACT *</pattern>
+		<pattern>^ EXTRACT ^</pattern>
 		<template>
 			<srai>EXTRACT</srai>
 		</template>
 	</category>
 	
 	<category>
-		<pattern>_ EXTRACT</pattern>
+		<pattern>^ EXTRACTION ^</pattern>
 		<template>
 			<srai>EXTRACT</srai>
 		</template>
 	</category>
 	
 	<category>
-		<pattern>_ EXTRACT *</pattern>
+		<pattern>^ ANALYZE ^</pattern>
 		<template>
 			<srai>EXTRACT</srai>
 		</template>
 	</category>
 	
 	<category>
-		<pattern>EXTRACTION</pattern>
-		<template>
-			<srai>EXTRACT</srai>
-		</template>
-	</category>
-	
-	<category>
-		<pattern>EXTRACTION *</pattern>
-		<template>
-			<srai>EXTRACT</srai>
-		</template>
-	</category>
-	
-	<category>
-		<pattern>_ EXTRACTION</pattern>
-		<template>
-			<srai>EXTRACT</srai>
-		</template>
-	</category>
-	
-	<category>
-		<pattern>_ EXTRACTION *</pattern>
-		<template>
-			<srai>EXTRACT</srai>
-		</template>
-	</category>
-	
-	<category>
-		<pattern>ANALYZE</pattern>
-		<template>
-			<srai>EXTRACT</srai>
-		</template>
-	</category>
-	
-	<category>
-		<pattern>ANALYZE *</pattern>
-		<template>
-			<srai>EXTRACT</srai>
-		</template>
-	</category>
-	
-	<category>
-		<pattern>_ ANALYZE</pattern>
-		<template>
-			<srai>EXTRACT</srai>
-		</template>
-	</category>
-	
-	<category>
-		<pattern>_ ANALYZE *</pattern>
-		<template>
-			<srai>EXTRACT</srai>
-		</template>
-	</category>
-	
-	<category>
-		<pattern>INFORMATION</pattern>
-		<template>
-			<srai>EXTRACT</srai>
-		</template>
-	</category>
-	
-	<category>
-		<pattern>INFORMATION *</pattern>
-		<template>
-			<srai>EXTRACT</srai>
-		</template>
-	</category>
-	
-	<category>
-		<pattern>_ INFORMATION</pattern>
-		<template>
-			<srai>EXTRACT</srai>
-		</template>
-	</category>
-	
-	<category>
-		<pattern>_ INFORMATION *</pattern>
+		<pattern>^ INFORMATION ^</pattern>
 		<template>
 			<srai>EXTRACT</srai>
 		</template>
@@ -243,49 +125,14 @@
 	</category>
 	
 	<category>
-		<pattern>CLUSTER *</pattern>
+		<pattern>^ CLUSTER ^</pattern>
 		<template>
 			<srai>CLUSTER</srai>
 		</template>
 	</category>
 	
 	<category>
-		<pattern>_ CLUSTER</pattern>
-		<template>
-			<srai>CLUSTER</srai>
-		</template>
-	</category>
-	
-	<category>
-		<pattern>_ CLUSTER *</pattern>
-		<template>
-			<srai>CLUSTER</srai>
-		</template>
-	</category>
-	
-	<category>
-		<pattern>CLUSTERING</pattern>
-		<template>
-			<srai>CLUSTER</srai>
-		</template>
-	</category>
-	
-	<category>
-		<pattern>CLUSTERING *</pattern>
-		<template>
-			<srai>CLUSTER</srai>
-		</template>
-	</category>
-	
-	<category>
-		<pattern>_ CLUSTERING</pattern>
-		<template>
-			<srai>CLUSTER</srai>
-		</template>
-	</category>
-	
-	<category>
-		<pattern>_ CLUSTERING *</pattern>
+		<pattern>^ CLUSTERING ^</pattern>
 		<template>
 			<srai>CLUSTER</srai>
 		</template>
@@ -293,56 +140,56 @@
 	
 	<topic name = "extract-information">
 		<category>
-			<pattern>*</pattern>
+			<pattern>#</pattern>
 			<template>
 				<doextract></doextract>
 			</template>
 		</category>
 		
 		<category>
-			<pattern>PEOPLE</pattern>
+			<pattern>$PEOPLE</pattern>
 			<template>
 				<getpeople></getpeople>
 			</template>
 		</category>
 		
 		<category>
-			<pattern>DATES</pattern>
+			<pattern>$DATES</pattern>
 			<template>
 				<getdates></getdates>
 			</template>
 		</category>
 		
 		<category>
-			<pattern>LOCATIONS</pattern>
+			<pattern>$LOCATIONS</pattern>
 			<template>
 				<getlocations></getlocations>
 			</template>
 		</category>
 		
 		<category>
-			<pattern>ORGANIZATIONS</pattern>
+			<pattern>$ORGANIZATIONS</pattern>
 			<template>
 				<getorganizations></getorganizations>
 			</template>
 		</category>
 		
 		<category>
-			<pattern>MONEY</pattern>
+			<pattern>$MONEY</pattern>
 			<template>
 				<getmoney></getmoney>
 			</template>
 		</category>
 		
 		<category>
-			<pattern>PERCENTAGES</pattern>
+			<pattern>$PERCENTAGES</pattern>
 			<template>
 				<getpercentages></getpercentages>
 			</template>
 		</category>
 		
 		<category>
-			<pattern>STOP</pattern>
+			<pattern>$STOP</pattern>
 			<template>
 				<think><set name = "topic">default</set></think>
 				<random>
@@ -357,112 +204,28 @@
 		</category>
 		
 		<category>
-			<pattern>STOP *</pattern>
+			<pattern>$ENOUGH</pattern>
 			<template>
 				<srai>STOP</srai>
 			</template>
 		</category>
 		
 		<category>
-			<pattern>_ STOP</pattern>
+			<pattern>$DO SOMETHING ELSE</pattern>
 			<template>
 				<srai>STOP</srai>
 			</template>
 		</category>
 		
 		<category>
-			<pattern>_ STOP *</pattern>
+			<pattern>$GO BACK</pattern>
 			<template>
 				<srai>STOP</srai>
 			</template>
 		</category>
 		
 		<category>
-			<pattern>ENOUGH</pattern>
-			<template>
-				<srai>STOP</srai>
-			</template>
-		</category>
-		
-		<category>
-			<pattern>ENOUGH *</pattern>
-			<template>
-				<srai>STOP</srai>
-			</template>
-		</category>
-		
-		<category>
-			<pattern>_ ENOUGH</pattern>
-			<template>
-				<srai>STOP</srai>
-			</template>
-		</category>
-		
-		<category>
-			<pattern>_ ENOUGH *</pattern>
-			<template>
-				<srai>STOP</srai>
-			</template>
-		</category>
-		
-		<category>
-			<pattern>DO SOMETHING ELSE</pattern>
-			<template>
-				<srai>STOP</srai>
-			</template>
-		</category>
-		
-		<category>
-			<pattern>SOMETHING ELSE *</pattern>
-			<template>
-				<srai>STOP</srai>
-			</template>
-		</category>
-		
-		<category>
-			<pattern>_ SOMETHING ELSE</pattern>
-			<template>
-				<srai>STOP</srai>
-			</template>
-		</category>
-		
-		<category>
-			<pattern>_ SOMETHING ELSE *</pattern>
-			<template>
-				<srai>STOP</srai>
-			</template>
-		</category>
-		
-		<category>
-			<pattern>GO BACK</pattern>
-			<template>
-				<srai>STOP</srai>
-			</template>
-		</category>
-		
-		<category>
-			<pattern>GO BACK *</pattern>
-			<template>
-				<srai>STOP</srai>
-			</template>
-		</category>
-		
-		<category>
-			<pattern>_ GO BACK</pattern>
-			<template>
-				<srai>STOP</srai>
-			</template>
-		</category>
-		
-		<category>
-			<pattern>_ GO BACK *</pattern>
-			<template>
-				<srai>STOP</srai>
-			</template>
-		</category>
-		
-		<category>
-			<pattern>BACK</pattern>
+			<pattern>$BACK</pattern>
 			<template>
 				<srai>STOP</srai>
 			</template>
@@ -471,14 +234,14 @@
 	
 	<topic name = "cluster-article">
 		<category>
-			<pattern>*</pattern>
+			<pattern>#</pattern>
 			<template>
 				<docluster></docluster>
 			</template>
 		</category>
 		
 		<category>
-			<pattern>STOP</pattern>
+			<pattern>$STOP</pattern>
 			<template>
 				<think><set name = "topic">default</set></think>
 				<random>
@@ -493,112 +256,28 @@
 		</category>
 		
 		<category>
-			<pattern>STOP *</pattern>
+			<pattern>$ENOUGH</pattern>
 			<template>
 				<srai>STOP</srai>
 			</template>
 		</category>
 		
 		<category>
-			<pattern>_ STOP</pattern>
+			<pattern>$DO SOMETHING ELSE</pattern>
 			<template>
 				<srai>STOP</srai>
 			</template>
 		</category>
 		
 		<category>
-			<pattern>_ STOP *</pattern>
+			<pattern>$GO BACK</pattern>
 			<template>
 				<srai>STOP</srai>
 			</template>
 		</category>
 		
 		<category>
-			<pattern>ENOUGH</pattern>
-			<template>
-				<srai>STOP</srai>
-			</template>
-		</category>
-		
-		<category>
-			<pattern>ENOUGH *</pattern>
-			<template>
-				<srai>STOP</srai>
-			</template>
-		</category>
-		
-		<category>
-			<pattern>_ ENOUGH</pattern>
-			<template>
-				<srai>STOP</srai>
-			</template>
-		</category>
-		
-		<category>
-			<pattern>_ ENOUGH *</pattern>
-			<template>
-				<srai>STOP</srai>
-			</template>
-		</category>
-		
-		<category>
-			<pattern>DO SOMETHING ELSE</pattern>
-			<template>
-				<srai>STOP</srai>
-			</template>
-		</category>
-		
-		<category>
-			<pattern>SOMETHING ELSE *</pattern>
-			<template>
-				<srai>STOP</srai>
-			</template>
-		</category>
-		
-		<category>
-			<pattern>_ SOMETHING ELSE</pattern>
-			<template>
-				<srai>STOP</srai>
-			</template>
-		</category>
-		
-		<category>
-			<pattern>_ SOMETHING ELSE *</pattern>
-			<template>
-				<srai>STOP</srai>
-			</template>
-		</category>
-		
-		<category>
-			<pattern>GO BACK</pattern>
-			<template>
-				<srai>STOP</srai>
-			</template>
-		</category>
-		
-		<category>
-			<pattern>GO BACK *</pattern>
-			<template>
-				<srai>STOP</srai>
-			</template>
-		</category>
-		
-		<category>
-			<pattern>_ GO BACK</pattern>
-			<template>
-				<srai>STOP</srai>
-			</template>
-		</category>
-		
-		<category>
-			<pattern>_ GO BACK *</pattern>
-			<template>
-				<srai>STOP</srai>
-			</template>
-		</category>
-		
-		<category>
-			<pattern>BACK</pattern>
+			<pattern>$BACK</pattern>
 			<template>
 				<srai>STOP</srai>
 			</template>
