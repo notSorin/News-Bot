@@ -26,7 +26,7 @@ class InformationExtractorBehavior extends CyclicBehaviour
 	private static final String EXTRACTION_SUCCESS = "Information extraction completed.\nWhat information would you like to know about it?";
 	private static final String NO_ARTICLE_PROCESSED = "I haven't been given an article to process yet.";
 	private static final String GET_FAIL = "I could not find any information about that in the last processed article.";
-	private static final String GET_SUCCESS = "Here is what I could find from the last processes article...\n\n";
+	private static final String GET_SUCCESS = "Here is what I could find from the last processed article...\n\n";
 	
 	//Strings with the names of the relevant annotations.
 	private static final String ANNOTATION_PERSON = "Person", ANNOTATION_DATE = "Date", ANNOTATION_LOCATION = "Location",
