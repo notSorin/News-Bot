@@ -154,7 +154,21 @@ Extract information from an article and perform clustering to figure out what an
 		</category>
 		
 		<category>
+			<pattern>$PERSON</pattern>
+			<template>
+				<getpeople></getpeople>
+			</template>
+		</category>
+		
+		<category>
 			<pattern>$DATES</pattern>
+			<template>
+				<getdates></getdates>
+			</template>
+		</category>
+		
+		<category>
+			<pattern>$DATE</pattern>
 			<template>
 				<getdates></getdates>
 			</template>
@@ -168,7 +182,21 @@ Extract information from an article and perform clustering to figure out what an
 		</category>
 		
 		<category>
+			<pattern>$LOCATION</pattern>
+			<template>
+				<getlocations></getlocations>
+			</template>
+		</category>
+		
+		<category>
 			<pattern>$ORGANIZATIONS</pattern>
+			<template>
+				<getorganizations></getorganizations>
+			</template>
+		</category>
+		
+		<category>
+			<pattern>$ORGANIZATION</pattern>
 			<template>
 				<getorganizations></getorganizations>
 			</template>
@@ -183,6 +211,20 @@ Extract information from an article and perform clustering to figure out what an
 		
 		<category>
 			<pattern>$PERCENTAGES</pattern>
+			<template>
+				<getpercentages></getpercentages>
+			</template>
+		</category>
+		
+		<category>
+			<pattern>$PERCENTAGE</pattern>
+			<template>
+				<getpercentages></getpercentages>
+			</template>
+		</category>
+		
+		<category>
+			<pattern>$PERCENT</pattern>
 			<template>
 				<getpercentages></getpercentages>
 			</template>
