@@ -19,6 +19,12 @@ import jade.lang.acl.ACLMessage;
  */
 class NBAIMLProcessorExtension extends PCAIMLProcessorExtension
 {
+	//The minimum length a string must have to be considered an article.
+	private static final int MIN_ARTICLE_LENGTH = 100;
+	
+	//A message error to show when an article does not have a minimum length.
+	private static final String ARTICLE_ERROR = "If you were trying to send me an article, make sure it's at least %d characters long; otherwise I didn't understand what you meant.";
+	
 	//Constants for each action the user can ask the program to perform.
 	private static final String DO_CLUSTER = "docluster", DO_EXTRACT = "doextract", GET_PEOPLE = "getpeople",
 			GET_DATES = "getdates", GET_LOCATIONS = "getlocations", GET_ORGANIZATIONS = "getorganizations",
@@ -53,10 +59,24 @@ class NBAIMLProcessorExtension extends PCAIMLProcessorExtension
             switch(nodeName)
             {
             case DO_CLUSTER:
-            	sendIntent(ClusteringAgent.class.getSimpleName(), MessageValue.CLUSTER_ARTICLE, ps.input);
+            	if(ps.input.length() >= MIN_ARTICLE_LENGTH)
+            	{
+            		sendIntent(ClusteringAgent.class.getSimpleName(), MessageValue.CLUSTER_ARTICLE, ps.input);
+            	}
+            	else
+            	{
+            		ret = String.format(ARTICLE_ERROR, MIN_ARTICLE_LENGTH);
+            	}
             	break;
             case DO_EXTRACT:
-            	sendIntent(InformationExtractorAgent.class.getSimpleName(), MessageValue.EXTRACT_FROM_ARTICLE, ps.input);
+            	if(ps.input.length() >= MIN_ARTICLE_LENGTH)
+            	{
+            		sendIntent(InformationExtractorAgent.class.getSimpleName(), MessageValue.EXTRACT_FROM_ARTICLE, ps.input);
+            	}
+            	else
+            	{
+            		ret = String.format(ARTICLE_ERROR, MIN_ARTICLE_LENGTH);
+            	}
             	break;
             case GET_PEOPLE:
             	sendIntent(InformationExtractorAgent.class.getSimpleName(), MessageValue.GET_EXTRACTED_PERSON, null);
