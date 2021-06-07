@@ -73,7 +73,7 @@ public class ConversationAgent extends Agent
 	    	final String messageText = update.getMessage().getText();
 	    	String sanitizedInput = messageText.replaceAll("['.\"]", "");
 	    	
-	    	sanitizedInput = sanitizedInput.replaceAll("[^a-zA-Z0-9- ]", " ");
+	    	sanitizedInput = sanitizedInput.replaceAll("[^$£€a-zA-Z0-9- ]", " ");
 	    	
 	    	final String nlpResponse = _nlpChat.multisentenceRespond(sanitizedInput);
 	    	
